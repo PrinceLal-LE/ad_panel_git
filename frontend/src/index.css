@@ -1,0 +1,54 @@
+/* React-Toastify CSS */
+@import 'react-toastify/dist/ReactToastify.css';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+/* Custom styles for sidebar active links */
+.nav-link.active-link {
+  background-color: #007bff;
+  border-radius: 5px;
+  color: #fff !important;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Style for parent menu when any of its sub-menus are active */
+.active-parent-link {
+  background-color: #007bff !important;
+  border-radius: 5px;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* Ensure sidebar takes full height */
+.sidebar {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.row.g-0 {
+  margin: 0;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
