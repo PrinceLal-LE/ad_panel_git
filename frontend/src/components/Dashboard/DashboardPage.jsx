@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {  Row, Col, Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useAuth, CustomModal } from '../../App';
+import { CustomModal } from '../../App';
+import { useAuth } from '../../AuthContext';
 import { SuperAdminPanel, AdminPanel, EditorPanel, SupervisorPanel, UserPanel } from './Panels';
 
 const DashboardPage = () => {

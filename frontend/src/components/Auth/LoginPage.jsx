@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Form, Button, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useAuth, CustomModal } from '../../App';
+import {  CustomModal } from '../../App';
+import { useAuth } from '../../AuthContext';
 
 const LoginPage = () => {
     const { loginUser, isAuthenticated } = useAuth();

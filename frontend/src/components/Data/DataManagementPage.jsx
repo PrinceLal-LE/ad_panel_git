@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Card, Button, Table, Spinner, Modal as BootstrapModal, Form, Alert } from 'react-bootstrap';
-import { useAuth } from '../../App'; // No longer importing custom Modal
+import { useAuth } from '../../AuthContext'; // No longer importing custom Modal
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 import Swal from 'sweetalert2'; // Import SweetAlert2
 import { toast } from 'react-toastify'; // Import toast for notifications

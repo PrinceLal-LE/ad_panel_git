@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Nav, Collapse } from 'react-bootstrap'; // Import Collapse for sub-menu
 import { NavLink, useLocation } from 'react-router-dom'; // Import NavLink and useLocation
 import { FaDatabase, FaTachometerAlt, FaUsers, FaEdit, FaChartLine, FaChevronRight, FaChevronDown, FaCog } from 'react-icons/fa'; // Added FaCog for Setting icon
-import { useAuth } from '../../App';
+import { useAuth } from '../../AuthContext';
 
 const Sidebar = () => {
     const { currentUser } = useAuth();

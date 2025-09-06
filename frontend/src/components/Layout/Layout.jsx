@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Navbar, Button, Card } from 'react-bootstrap';
 import { FaBars } from 'react-icons/fa';
 import SidebarWrapper from './SidebarWrapper';
-import { useAuth } from '../../App';
+import { useAuth } from '../../AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Layout = ({ children }) => {

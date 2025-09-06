@@ -15,7 +15,7 @@ import Layout from '../components/Layout/Layout';
 import DataManagementPage from '../components/Data/DataManagementPage'; // NEW IMPORT
 
 // Import authentication context and protected route HOC
-import { useAuth } from '../App'; // Assuming useAuth is exported from App.js
+import { useAuth } from '../AuthContext'; // Assuming useAuth is exported from App.js
 
 // ProtectedRoute component to guard routes
 const ProtectedRoute = ({ children }) => {

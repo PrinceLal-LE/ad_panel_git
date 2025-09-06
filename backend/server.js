@@ -29,16 +29,27 @@ app.use((req, res, next) => {
 
 
 // --- Security Middleware ---
-app.use(cors({
-    origin: [
-        'http://localhost:5001',   // Vite frontend
-        'http://127.0.0.1:5001',   // Sometimes browsers send requests with 127.0.0.1
-        'https://admin.mouldconnect.com'
-    ],
+const allowedOrigins = [
+    'http://localhost:5001',
+    'http://127.0.0.1:5001',
+    'https://admin.mouldconnect.com'
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'The CORS policy does not allow access from this origin: ' + origin;
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
-}));
+  }));
+  
 app.use(helmet()); 
 
 // Rate Limiting
