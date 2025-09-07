@@ -6,7 +6,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import RegisterPage from '../components/Auth/RegisterPage';
 import LoginPage from '../components/Auth/LoginPage';
 // import ForgotPasswordPage from '../components/Auth/ForgotPasswordPage';
-
+import PostManagementPanel from '../components/PostManagement/PostManagementPanel';
 // Import dashboard and layout components
 import DashboardPage from '../components/Dashboard/DashboardPage';
 import Layout from '../components/Layout/Layout';
@@ -54,6 +54,7 @@ const AppRoutes = () => {
                             {/* Nested Routes for Dashboard content */}
                             <Routes>
                                 <Route index element={<DashboardPage />} /> {/* Renders at /dashboard */}
+                                <Route path="posts/:status" element={<PostManagementPanel />} />
                                 {/* Data Sub-menu Routes */}
                                 {/* Changed element to DataManagementPage */}
                                 <Route path="data/all" element={<DataManagementPage />} />
@@ -118,6 +119,7 @@ const AppRoutes = () => {
                                         <p>View various reports.</p>
                                     </div>
                                 } />
+                                
                             </Routes>
                         </Layout>
                     </ProtectedRoute>

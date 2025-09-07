@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Nav, Collapse } from 'react-bootstrap'; // Import Collapse for sub-menu
 import { NavLink, useLocation } from 'react-router-dom'; // Import NavLink and useLocation
-import { FaDatabase, FaTachometerAlt, FaUsers, FaEdit, FaChartLine, FaChevronRight, FaChevronDown, FaCog } from 'react-icons/fa'; // Added FaCog for Setting icon
+import { FaDatabase, FaTachometerAlt, FaUsers, FaEdit, FaChartLine, FaChevronRight, FaChevronDown, FaCog, FaThumbtack } from 'react-icons/fa'; // Added FaCog for Setting icon
 import { useAuth } from '../../AuthContext';
 
 const Sidebar = () => {
@@ -12,7 +12,7 @@ const Sidebar = () => {
     const [openData, setOpenData] = useState(false);
     const [openUserManagement, setOpenUserManagement] = useState(false);
     const [openSetting, setOpenSetting] = useState(false); // NEW: State for Setting menu
-
+    const [openPost, setOpenPost] = useState(false); // NEW: State for Post menu
     // Function to check if a parent menu or any of its sub-menus are active
     const isParentActive = (paths) => {
         return paths.some(path => location.pathname.startsWith(path));
@@ -78,6 +78,26 @@ const Sidebar = () => {
                         <CustomNavLink to="/dashboard/data/all" isSubMenu={true}>All Data</CustomNavLink>
                         <CustomNavLink to="/dashboard/data/add" isSubMenu={true}>Add New Data</CustomNavLink>
                         {/* Add more data sub-menus */}
+                    </div>
+                </Collapse>
+                <Nav.Link
+                    onClick={() => setOpenPost(!openPost)}
+                    aria-controls="post-submenu"
+                    aria-expanded={openPost}
+                    className={`text-white py-2 d-flex justify-content-between align-items-center ${isParentActive(['/dashboard/posts']) ? 'active-parent-link' : ''}`}
+                >
+                    <div>
+                        <FaThumbtack className="me-2" />
+                        Post
+                    </div>
+                    {openPost ? <FaChevronDown /> : <FaChevronRight />}
+                </Nav.Link>
+                <Collapse in={openPost}>
+                    <div id="post-submenu">
+                        <CustomNavLink to="/dashboard/posts/pending" isSubMenu={true}>To Be Approved</CustomNavLink>
+                        <CustomNavLink to="/dashboard/posts/approved" isSubMenu={true}>Approved Post</CustomNavLink>
+                        <CustomNavLink to="/dashboard/posts/rejected" isSubMenu={true}>Rejected Post</CustomNavLink>
+                        <CustomNavLink to="/dashboard/posts/deleted" isSubMenu={true}>Deleted Post</CustomNavLink>
                     </div>
                 </Collapse>
 
